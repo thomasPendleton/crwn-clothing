@@ -39,9 +39,14 @@ export const createUserDocumentFromAuth = async (userAuth) => {
         const createdAt = new Date()
 
         try {
-
-        } catch {
-
+            await setDoc(userDocRef, {
+                displayName, 
+                email, 
+                createdAt
+            })
+        } catch(error) {
+            console.log('error creating user', error);
         }
     }
+    return userDocRef
 }
