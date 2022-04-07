@@ -5,6 +5,9 @@ import {
   createUserDocumentFromAuth,
 } from '../../utils/firebase.utils'
 import FormInput from '../form-input/form-input.component'
+import Button from '../button/button.component'
+
+
 const defaultFormFields = {
   displayName: '',
   email: '',
@@ -87,7 +90,7 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
 
-        <button type="submit">Sign Up</button>
+        <Button buttonType={''} type="submit">Sign Up</Button>
       </form>
     </div>
   )
