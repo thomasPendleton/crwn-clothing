@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './sign-up-form.style.scss'
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -46,8 +47,9 @@ const SignUpForm = () => {
   }
 
   return (
-    <div>
-      <h1>Sign up with your email and password</h1>
+    <div className='sign-up-container'>
+      <h2>Don't have an account?</h2>
+      <span>Sign up with your email and password</span>
       <form action="" onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"
