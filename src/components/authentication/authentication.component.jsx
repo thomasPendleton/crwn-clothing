@@ -7,7 +7,6 @@ import {
 import FormInput from '../form-input/form-input.component'
 import Button from '../button/button.component'
 
-
 const defaultFormFields = {
   displayName: '',
   email: '',
@@ -50,7 +49,7 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className='sign-up-container'>
+    <div className="sign-up-container">
       <h2>Don't have an account?</h2>
       <span>Sign up with your email and password</span>
       <form action="" onSubmit={handleSubmit}>
@@ -90,7 +89,9 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
 
-        <Button buttonType={''} type="submit">Sign Up</Button>
+        <Button buttonType={''} type="submit">
+          Sign Up
+        </Button>
       </form>
     </div>
   )
