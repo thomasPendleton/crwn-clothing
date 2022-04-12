@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './authentication.scss'
+import './sign-up.scss'
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
