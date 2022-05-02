@@ -1,36 +1,39 @@
-const CheckoutItem = () => {
-  const decriment = () => {
-    console.log('clickarrow left')
-  }
-  const increment = () => {
-    console.log('clickarrow right')
-  }
-  return (
-    <div
-      style={{
-        backgroundColor: 'lightGrey',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingRight: '10px'
-      }}
-    >
-      <img
-        style={{ maxWidth: '100px' }}
-        src="https://i.ibb.co/RjBLWxB/grey-brim.png"
-        alt="hat"
-      />
-      <span>Shoes</span>
-      <div>
-        <span style={{ fontWeight: 'bold', cursor: 'pointer' }} onClick={decriment}>
-          &lt;
-        </span>
-        <span> 0 </span>
-        <span style={{ fontWeight: 'bold', cursor: 'pointer' }} onClick={increment}>&gt;</span>
-      </div>
+import './checkout-item.style.scss'
+import { CartContext } from '../../contexts/cart.context'
+import { useContext } from 'react'
 
-      <span>110</span>
-      <span>X</span>
+const CheckoutItem = ({ cartItem }) => {
+  const { name, imageUrl, price, quantity } = cartItem
+  const { deleteCartItems, removeItemToCart, addItemToCart } =
+    useContext(CartContext)
+
+  const decrementItemHandler = () => {
+    removeItemToCart(cartItem)
+  }
+  const incrementItemHandler = () => {
+    addItemToCart(cartItem)
+  }
+
+  return (
+    <div className="checkout-item-container">
+      <div className="image-container">
+        <img src={imageUrl} alt={`${name}`} />
+      </div>
+      <span className="name">{name}</span>
+      <span className="quantity">
+        <div className="arrow" onClick={decrementItemHandler}>
+          &#10094;
+        </div>
+        <span className="value"> {quantity}</span>
+
+        <div className="arrow" onClick={incrementItemHandler}>
+          &#10095;
+        </div>
+      </span>
+      <span className="price">{price}</span>
+      <div className="remove-button" onClick={() => deleteCartItems(cartItem)}>
+        &#10005;
+      </div>
     </div>
   )
 }
