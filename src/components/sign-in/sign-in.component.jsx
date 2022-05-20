@@ -79,7 +79,7 @@ const SignIn = () => {
         <ButtonsContainer>
           <Button type="submit">Sign In</Button>
           <Button
-            buttonType={ButtonTypes.inverted}
+            buttonType={ButtonTypes.google}
             type="button"
             onClick={signInWithGoogle}
           >
